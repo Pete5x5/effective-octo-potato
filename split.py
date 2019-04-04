@@ -17,3 +17,4 @@ for pageNum in range(pdf1Reader.numPages):
     pdfOutputFile = open(str(int(pageNum+1)) + '-' + gendate + '.pdf', 'wb')
     pdfWriter.write(pdfOutputFile)
     pdfOutputFile.close()
+    pdfWriter = PyPDF2.PdfFileWriter() #Clear var so you get only 1 page each time
