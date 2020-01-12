@@ -1,2 +1,2 @@
 # effective-octo-potato
-Data in python
+Scripts in python, ahk, powershell, and more
