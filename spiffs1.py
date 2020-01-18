@@ -64,7 +64,7 @@ for folderName, subfolders, filenames in os.walk(invpath):
     for filename in filenames:
         invlist += [filename]
 
-while len(invlist) > 0:
+while len(invlist) > (0 + skipnum):
     findinv = [i for i in invlist if i.startswith(str(invnum)+'-')] #find filename that starts with "invnum-"
     try:
         pyautogui.click("0.png")  #click
