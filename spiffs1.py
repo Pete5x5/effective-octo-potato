@@ -66,8 +66,12 @@ for folderName, subfolders, filenames in os.walk(invpath):
 
 while len(invlist) > 0:
     findinv = [i for i in invlist if i.startswith(str(invnum)+'-')] #find filename that starts with "invnum-"
-    pyautogui.click("0.png")  #click
-    pyautogui.write(['enter'])
+    try:
+        pyautogui.click("0.png")  #click
+    except:
+        if compconfirm == 'L':
+            pyautogui.click(160,135)    #click logo area for laptop
+    
     time.sleep(2)  #sleep for 2 seconds
     ## if unsuccessful type URL??
     pyautogui.click("1.png")  #click
@@ -117,3 +121,6 @@ while len(invlist) > 0:
     csvnum += 1 #next csv row
     invnum += 1 #next invoice
     invlist.remove(findinv[0])  #remove the invoice that was just submitted
+    pyautogui.write(['home'])
+    time.sleep(1)  #sleep for 1 second
+    
