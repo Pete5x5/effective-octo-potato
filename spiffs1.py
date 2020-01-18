@@ -52,7 +52,7 @@ while True:
 
 invlist = []
 
-skipnum = 0  #IMPORTANT - "starting number" - increasing this will skip the first n rows/invoices
+skipnum = 8  #IMPORTANT - "starting number" - increasing this will skip the first n rows/invoices
 
 csvnum = 0 + skipnum  #csv row to start at (0 is first row)
 invnum = 5 + skipnum  #invoice pdf number to start at (starts at 1)
