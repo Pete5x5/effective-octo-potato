@@ -73,20 +73,47 @@ while len(invlist) > 0:
             pyautogui.click(160,135)    #click logo area for laptop
     
     time.sleep(2)  #sleep for 2 seconds
-    ## if unsuccessful type URL??
-    pyautogui.click("1.png")  #click
+    
+    try:
+        pyautogui.click("1.png")  #click
+    except:
+        if compconfirm == 'L':
+            pyautogui.click(1144,256)    #click area for laptop
+    
     time.sleep(2)  #sleep for 2 seconds
     pyautogui.write(['end'])
-    pyautogui.click("2.png")  #click
+
+    try:
+        pyautogui.click("2.png")  #click
+    except:
+        if compconfirm == 'L':
+            pyautogui.click(670,612)    #click area for laptop
+
     time.sleep(2)  #sleep for 2 seconds
     pyautogui.write(['end'])
-    pyautogui.click("3.png")  #click
+
+    try:
+        pyautogui.click("3.png")  #click
+    except:
+        if compconfirm == 'L':
+            pyautogui.click(666,647)    #click area for laptop
+
     time.sleep(2)  #sleep for 2 seconds
-    pyautogui.click("4.png")  #click
+    pyautogui.write(['home'])
+
+    try:
+        pyautogui.click("4.png")  #click
+    except:
+        if compconfirm == 'L':
+            pyautogui.click(662,538)    #click area for laptop
+
     time.sleep(2)  #sleep for 2 seconds
+
     pyautogui.write(findinv[0])
     pyautogui.write(['enter'])
+
     time.sleep(22)  #sleep for 22 seconds
+
     pyautogui.write(['tab'])
     time.sleep(1)  #sleep for 1 second
     pyautogui.write(spifflist[csvnum][2])
@@ -111,8 +138,13 @@ while len(invlist) > 0:
     time.sleep(3)  #sleep for 3 second
     pyautogui.write(['end'])
     time.sleep(1)  #sleep for 1 second
-    ##try/except here for click on 5??  Can add a fail and move on if the submission failed
-    pyautogui.click("5.png")  #click
+    
+    try:
+        pyautogui.click("5.png")  #click
+    except:
+        if compconfirm == 'L':
+            pyautogui.click(673,642)    #click area for laptop
+
     time.sleep(8)  #sleep for 8 seconds
     gendate2 = (datetime.datetime.now()).strftime('%Y%m%d-%H%M%S')
     myScreenshot = pyautogui.screenshot()   #take screenshot
@@ -123,4 +155,3 @@ while len(invlist) > 0:
     invlist.remove(findinv[0])  #remove the invoice that was just submitted
     pyautogui.write(['home'])
     time.sleep(1)  #sleep for 1 second
-    
