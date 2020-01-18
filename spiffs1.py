@@ -52,12 +52,10 @@ while True:
 
 invlist = []
 
-skipnum = 8  #IMPORTANT - "starting number" - increasing this will skip the first n rows/invoices
+skipnum = 0  #IMPORTANT - "starting number" - increasing this will skip the first n rows/invoices
 
-csvnum = 0 + skipnum  #csv row to start at (normally 0 is first row)
-invnum = 5 + skipnum  #invoice pdf number to start at (normally starts at 1)
-
-endnum = 0
+csvnum = 0 + skipnum  #csv row to start at (0 is first row)
+invnum = 5 + skipnum  #invoice pdf number to start at (starts at 1)
 
 time.sleep(5)   #wait 5 seconds
 
@@ -66,7 +64,7 @@ for folderName, subfolders, filenames in os.walk(invpath):
     for filename in filenames:
         invlist += [filename]
 
-while (len(invlist)-skipnum) > endnum:
+while len(invlist) > 0:
     findinv = [i for i in invlist if i.startswith(str(invnum)+'-')] #find filename that starts with "invnum-"
     try:
         pyautogui.click("0.png")  #click
@@ -154,6 +152,6 @@ while (len(invlist)-skipnum) > endnum:
     time.sleep(1)  #sleep for 1 second
     csvnum += 1 #next csv row
     invnum += 1 #next invoice
-    endnum += 1 #increment loop
+    invlist.remove(findinv[0])  #remove the invoice that was just submitted
     pyautogui.write(['home'])
     time.sleep(1)  #sleep for 1 second
