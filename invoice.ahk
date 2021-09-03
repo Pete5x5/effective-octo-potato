@@ -1,14 +1,18 @@
 !+^i::
-InvNum := 7
-InvEnd := 35
+InvNum := 2
+InvEnd := 11
 NumLoops := InvEnd - InvNum + 1
 Loop, %NumLoops% {
     SendInput, ^p
     Sleep, 3000
     SendInput, {Tab}
-    Sleep, 3000
+    Sleep, 1000
     SendInput, {Enter}
-    Sleep, 3000
+    Sleep, 2000
+    SendInput, {Enter}
+    Sleep, 2000
+    SendInput, %InvNum%
+    Sleep, 1000
     SendInput, {Enter}
     Sleep, 3000
     InvNum += 1
@@ -23,7 +27,7 @@ Loop, %NumLoops% {
 }
 SendInput, {Del}
 Sleep, 500
-InvNum := 7
+InvNum := 2
 SendInput, %InvNum%
 Sleep, 500
 SendInput, {Enter}
